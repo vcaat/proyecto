@@ -18,8 +18,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Conexión a la base de datos
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root', // Cambia esto si tu usuario es diferente
-    password: '', // Añade tu contraseña si la tienes
+    user: 'root',
+    password: '',
     database: 'proyecto1',
 });
 
@@ -77,7 +77,7 @@ app.post('/login', async (req, res) => {
 
         if (user.length > 0) {
             // Comparar la contraseña con el valor hash almacenado
-            const isPasswordValid = await bcrypt.compare(password, user[0].password); // Usar compare async
+            const isPasswordValid = await bcrypt.compare(password, user[0].password);
             if (isPasswordValid) {
                 // Si la contraseña es válida, se puede generar un token JWT o redirigir al usuario
                 return res.send('Iniciado sesión con éxito');
@@ -96,17 +96,17 @@ app.post('/login', async (req, res) => {
 app.post('/recuperarpass', async (req, res) => {
     const { email } = req.body;
 
-    // Verificamos que el correo esté presente
+    // Verifica que el correo esté presente
     if (!email) {
         return res.status(400).send('Correo electrónico es requerido');
     }
 
-    // Consultamos si el correo existe en la base de datos
+    // Consulta si el correo existe en la base de datos
     connection.query('SELECT * FROM users WHERE LOWER(email) = LOWER(?)', [email], (err, user) => {
         if (err) return res.status(500).send('Error en la base de datos');
 
         if (user.length > 0) {
-            // Si el correo está registrado, respondemos con un mensaje de éxito
+            // Si el correo está registrado, responde con un mensaje de éxito
             return res.send({ message: 'Correo encontrado', success: true });
         } else {
             // Si el correo no está registrado
@@ -119,15 +119,15 @@ app.post('/recuperarpass', async (req, res) => {
 app.post('/actualizar-password', async (req, res) => {
     const { email, newPassword, repeatPassword } = req.body;
 
-    // Verificamos que las contraseñas coincidan
+    // Verifica que las contraseñas coincidan
     if (newPassword !== repeatPassword) {
         return res.status(400).json({ error: 'Las contraseñas no coinciden' });
     }
 
-    // Ciframos la nueva contraseña
+    // Cifra la nueva contraseña
     const hashedPassword = bcrypt.hashSync(newPassword, 10);
 
-    // Actualizamos la contraseña en la base de datos
+    // Actualiza la contraseña en la base de datos
     connection.query('UPDATE users SET password = ? WHERE email = ?', [hashedPassword, email], (err, result) => {
         if (err) return res.status(500).json({ error: 'Error en la base de datos' });
         if (result.affectedRows > 0) {
