@@ -37,7 +37,7 @@ Este es un proyecto que permite a los usuarios registrarse, iniciar sesión y re
 1. Inicia el servidor: node index.js
 2. Abre tu navegador y accede a http://localhost:3000
 
-#Endpoints principales:
+# Endpoints principales:
 - Registro de usuarios: POST /register
 - Inicio de sesión: POST /login
 - Recuperar contraseña: POST /recuperarpass
