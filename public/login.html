@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión</title>
-    <!-- Incluir Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Fondo de página */
         body {
             background: url('image.jpg') no-repeat center center fixed;
             background-size: cover;
@@ -18,12 +16,12 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            color: #007bff; /* Cambiar el color de la letra a azul */
+            color: #007bff; 
         }
 
         .login-container {
             max-width: 400px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con algo de transparencia */
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -33,11 +31,11 @@
 
         .login-container h2 {
             text-align: center;
-            color: #007bff; /* Títulos en azul */
+            color: #007bff; 
         }
 
         .login-container a {
-            color: #007bff; /* Enlaces en azul */
+            color: #007bff;
         }
 
         .login-form {
@@ -115,7 +113,6 @@
         <p class="text-center">¿No tienes una cuenta? <a href="register.html">Regístrate</a></p>
     </div>
 
-    <!-- Imagen de usuario al lado derecho -->
     <div class="image-container">
         <img src="login.jpg" alt="Usuario">
     </div>
@@ -126,7 +123,6 @@
         <p>Catalina Pérez - Ing. en informática</p>
     </footer>
 
-    <!-- Incluir Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -151,7 +147,7 @@
             });
 
             const result = await response.text(); // Obtener la respuesta en texto
-            alert(result); // Mostrar el resultado (puedes mejorarlo con una interfaz más amigable)
+            alert(result); // Mostrar el resultado 
         });
     </script>
 </body>
