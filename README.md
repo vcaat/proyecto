@@ -17,7 +17,7 @@ Este es un proyecto que permite a los usuarios registrarse, iniciar sesión y re
 
 # Instalación
 1.- Clona este repositorio:
-   git clone https://github.com/vcaat/proyecto.git
+   git clone https://github.com/vcaat/proyecto.git o puedes descargar la carpeta en formato zip y luego descomprimirlo
 2.- Inicia el XAMPP y crea la base de datos:
    el nombre de la base de datos es "proyecto1"
    luego de haberla creado, ve al sql y pega el código sql que está dentro del proyecto1 y ejecutala. Con esto se habrá creado la tabla para los usuarios. 
