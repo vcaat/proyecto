@@ -20,8 +20,7 @@ Este es un proyecto que permite a los usuarios registrarse, iniciar sesión y re
    git clone https://github.com/vcaat/proyecto.git
 2.- Inicia el XAMPP y crea la base de datos:
    el nombre de la base de datos es "proyecto1"
-   luego de haberla creado, ve al sql y pega el código sql que está dentro del   
-   proyecto1 y ejecutala. Con esto se habrá creado la tabla para los usuarios. 
+   luego de haberla creado, ve al sql y pega el código sql que está dentro del proyecto1 y ejecutala. Con esto se habrá creado la tabla para los usuarios. 
 3.- Navega a la carpeta del proyecto:
    cd proyecto1
 4.- Instala las dependencias:
