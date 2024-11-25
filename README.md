@@ -26,6 +26,8 @@ Este es un proyecto que permite a los usuarios registrarse, iniciar sesión y re
    cd proyecto1
 4. Instala las dependencias:
    npm install express mysql2 dotenv
+   npm install nodemailer
+   npm install swagger-ui-express yamljs
    npm install bcrypt jsonwebtoken body-parser
 5. Configura las variables de entorno en el archivo .env si es que es necesario:
    DB_HOST=localhost
