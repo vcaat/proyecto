@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <!-- Incluir Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: url('image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con algo de transparencia */
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            left: 10%;
+        }
+
+        .register-container h1 {
+            color: #007bff; /* Azul */
+            text-align: center;
+        }
+
+        .register-container a {
+            color: #007bff; /* Enlaces en azul */
+        }
+
+        .image-container {
+            position: absolute;
+            right: 10%;
+            top: 10%;
+            width: 40%;
+            max-width: 400px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .register-container {
+                width: 90%;
+                left: 5%;
+                top: 20%;
+            }
+            .image-container {
+                display: none; /* Ocultar la imagen en pantallas más pequeñas */
+            }
+        }
+
+        .top-right-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right-button">
+        <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+    </div>
+
+    <div class="register-container">
+        <h1>Registro de Usuario</h1>
+        <form id="registerForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña:</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+        </form>
+    </div>
+
+    <!-- Imagen al lado derecho -->
+    <div class="image-container">
+        <img src="login.jpg" alt="Imagen de registro">
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>Contacto: <a href="mailto:cattalina.alejandra14@gmail.com" style="color: white;">cattalina.alejandra14@gmail.com</a></p>
+        <p>Catalina Pérez - Ing. en informática</p>
+    </footer>
+
+    <!-- Incluir Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const form = document.getElementById('registerForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, password }),
+            });
+
+            const result = await response.json();
+            alert(result.message || 'Error al registrarse');
+        });
+    </script>
+</body>
+</html>
